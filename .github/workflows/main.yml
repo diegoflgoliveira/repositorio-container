@@ -1,9 +1,18 @@
 name: Teste Container
 on: 
-  workflow_dispatcch
+  workflow_dispatch:
+
 jobs:
-  build-test
-    runs-on: ununtu-latest
+  build-test:
+    runs-on: ubuntu-latest
+    container: 
+      image: python:3.10.14-alpine-alpine3.20
     steps:
-      - name: Chekout
+      - name: Checkout
         uses: actions/checkout@v4
+      - name: Verificar a versão do Python
+        run: python3 --version
+      - name: Instalação curl Alpine
+        run: apk add curl
+      - name: Executando o curl
+        run: curl https://google.com
