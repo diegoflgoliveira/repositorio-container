@@ -1,0 +1,9 @@
+name: Teste Container
+on: 
+  workflow_dispatcch
+jobs:
+  build-test
+    runs-on: ununtu-latest
+    steps:
+      - name: Chekout
+        uses: actions/checkout@v4
